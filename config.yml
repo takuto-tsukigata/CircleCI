@@ -1,0 +1,15 @@
+version: 2.1 # バージョン 2.1 を指定して Orb の使用を有効化します
+
+orbs:
+  win: circleci/windows@2.2.0 # Windows Orb には Windows Executor の使用に必要なすべてが揃っています
+
+jobs:
+  build: # ジョブの名前
+    executor:
+      name: win/default # executor type
+      size: "medium" # resource class, can be "medium", "large", "xlarge", "2xlarge", defaults to "medium" if not specified
+
+    steps:
+      # コマンドは仮想マシン環境で実行されます
+      - checkout
+      - run: Write-Host 'Hello, Windows'
